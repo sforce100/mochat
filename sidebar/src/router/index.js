@@ -1,4 +1,4 @@
-import { createRouter } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import store from '@/store'
 import routes from './routes'
 import { Toast } from 'vant'
@@ -6,7 +6,7 @@ import { Toast } from 'vant'
 import { getStorage, removeStorage } from '@/utils'
 
 const router = createRouter({
-// history: createWebHistory('/'),
+  history: createWebHistory('/'),
   routes
 })
 
