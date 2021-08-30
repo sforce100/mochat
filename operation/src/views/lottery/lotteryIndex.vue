@@ -220,6 +220,7 @@
                             let prizeData = {
                                 receiveName: res.data.prize_name,
                                 nickname: this.weChatUserNews.nickname,
+                                receiveQr: this.weChatUserNews.headimgurl,
                                 headimgurl: this.weChatUserNews.headimgurl
                             }
                             this.$refs.prize.show(prizeData)
