@@ -236,6 +236,8 @@
                         this.$refs.prize.show(prizeData)
                         this.getClientData()
                     }, 6000)
+                }).catch((res) => {
+                    console.log(res)
                 })
             }
         }
