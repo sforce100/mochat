@@ -214,6 +214,10 @@
                     union_id: this.weChatUserNews.unionid,
                     nickname: this.weChatUserNews.nickname
                 }).then((res) => {
+                    if (res.data.receive_qr == '10002' && res.data.receive_code == '10002') {
+                        this.$message.warning(res.data.prize_name)
+                        return
+                    }
                     //在哪里停止
                     this.prizeSetNews.forEach((item, index) => {
                         if (item.name == res.data.prize_name) {
