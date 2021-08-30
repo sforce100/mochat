@@ -29,7 +29,8 @@ const errorHandler = (error) => {
         router.push({ path: '/login' })
       })
     } else {
-      message.error(`${status || ''}  ${data.msg || 'error'}`)
+      // message.error(`${status || ''}  ${data.msg || 'error'}`)
+      this.$message.warning(data.msg)
     }
   } else {
     message.error(error.message || '请求出错，请稍后重试！')
