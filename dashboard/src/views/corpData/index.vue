@@ -152,13 +152,13 @@
       <a-card title="入门指引" style="marginTop: 13px;">
         <div class="btn-box">
           <div>
-            <a :href="" target="_blank">
+            <a :href="guide.dev" target="_blank">
               <img :src="require('@/assets/systemHomePage/file-icon.png')" alt="">
               <span>开发文档</span>
             </a>
           </div>
           <div>
-            <a :href="" target="_blank">
+            <a :href="guide.help" target="_blank">
               <img :src="require('@/assets/systemHomePage/help-icon.png')" alt="">
               <span>帮助中心</span>
             </a>
@@ -297,7 +297,10 @@ export default {
       license: {},
       licenseContactLink: '',
       newsList: [],
-      guide: {}
+      guide: {
+        dev: "http://www.baidu.com",
+        help: "http://www.baidu.com"
+      }
     }
   },
   created () {
