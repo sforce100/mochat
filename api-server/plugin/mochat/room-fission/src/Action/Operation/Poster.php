@@ -130,7 +130,7 @@ class Poster extends AbstractAction
         ## 客户已入群-返回海报
         $poster              = $this->roomFissionPosterService->getRoomFissionPosterByFissionId((int) $params['fission_id'], ['fission_id', 'cover_pic', 'avatar_show', 'nickname_show', 'nickname_color', 'qrcode_w', 'qrcode_h', 'qrcode_x', 'qrcode_y']);
         $poster['coverPic']  = file_full_url($poster['coverPic']);
-        $poster['qrCodeUrl'] = Url::getAuthRedirectUrl(8, $params['fission_id'], [
+        $poster['qrCodeUrl'] = Url::getAuthRedirectUrl(8, (int)$params['fission_id'], [
                 'parent_union_id' => $params['union_id'],
                 'wx_user_id' => '',
             ]);
