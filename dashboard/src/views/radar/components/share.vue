@@ -227,7 +227,7 @@ export default {
         this.channelName = ''
         this.getChannelNamelist({ radar_id: this.id })
       }).catch((res) => {
-          this.$message.error("渠道名称重复")
+        this.$message.error("渠道名称重复")
       })
     },
     // 获取渠道列表
