@@ -221,7 +221,6 @@ class ClockInContactService extends AbstractService implements ClockInContactCon
         $res = $this->model::query()
             ->where('clock_in_id', $clockInId)
             ->where('series_day', '>', 0)
-            ->groupBy(['series_day'])
             ->orderByDesc('series_day')
             ->limit(10)
             ->get($columns);
@@ -240,7 +239,6 @@ class ClockInContactService extends AbstractService implements ClockInContactCon
         $res = $this->model::query()
             ->where('clock_in_id', $clockInId)
             ->where('total_day', '>', 0)
-            ->groupBy(['union_id', 'total_day'])
             ->orderByDesc('total_day')
             ->limit(10)
             ->get($columns);
