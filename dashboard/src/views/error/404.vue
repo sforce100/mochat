@@ -1,5 +1,5 @@
 <template>
-  <a-result status="404" title="404" sub-title="对不起，MoChat该页面未找到！">
+  <a-result status="404" title="404" sub-title="对不起，MaTrix该页面未找到！">
     <template #extra>
       <a-button type="primary" @click="toHome">
         回首页

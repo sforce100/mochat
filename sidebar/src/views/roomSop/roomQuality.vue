@@ -10,7 +10,7 @@
           :scrollable="false"
           :wrapable="true"
           style="font-size: 12px;">
-          设置质检规则后，该群若在规定时间内未恢复客户消息，MoChat助手将给选定的管理员发送提醒
+          设置质检规则后，该群若在规定时间内未恢复客户消息，MaTrix助手将给选定的管理员发送提醒
         </NoticeBar>
         <div style="display: flex;">
           <div style="font-size: 15px;margin-top: 20px;">添加质检规则：</div>
@@ -37,7 +37,7 @@
                     <span v-if="obj.time_type==1">分钟</span>
                     <span v-if="obj.time_type==2">小时</span>
                     <span v-if="obj.time_type==3">天</span>
-                  </span> 未回复客户消息的群聊给管理员 <span v-for="(m,i) in obj.showEmployee" :key="i">{{ m.name }}</span> 发送MoChat提醒行为 </div>
+                  </span> 未回复客户消息的群聊给管理员 <span v-for="(m,i) in obj.showEmployee" :key="i">{{ m.name }}</span> 发送MaTrix提醒行为 </div>
               </div>
             </div>
           </div>

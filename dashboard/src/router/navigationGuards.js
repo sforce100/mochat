@@ -12,7 +12,7 @@ const whiteList = ['login'] // no redirect whitelist
 const loginRoutePath = '/login'
 router.beforeEach(async (to, from, next) => {
   NProgress.start() // start progress bar
-  to.meta && (typeof to.meta.title !== 'undefined' && setDocumentTitle(`${to.meta.title} - Powered by MoChat`))
+  to.meta && (typeof to.meta.title !== 'undefined' && setDocumentTitle(`${to.meta.title} - Powered by MaTrix`))
   /* has token */
   if (storage.get('ACCESS_TOKEN') && to.path !== '/login') {
     const route = store.getters.addRouters

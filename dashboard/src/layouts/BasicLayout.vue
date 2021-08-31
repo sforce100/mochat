@@ -14,7 +14,7 @@
     </template>
     <template v-slot:footerRender>
       <div class="footer">
-        Powered by <a class="mochat" href="https://mo.chat/" target="_blank">MoChat</a>
+        Powered by <a class="mochat" href="https://mo.chat/" target="_blank">MaTrix</a>
       </div>
     </template>
     <div class="breadcrumb-wrapper">

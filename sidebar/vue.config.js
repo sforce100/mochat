@@ -41,7 +41,7 @@ const vueConfig = {
     config
       .plugin('html')
       .tap(args => {
-        args[0].title = 'MoChat'
+        args[0].title = 'MaTrix'
         return args
       })
     config.resolve.alias

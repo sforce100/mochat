@@ -19,7 +19,7 @@
                 src="https://wx.qlogo.cn/mmopen/9YAYFgu8QC3ibLZ708eUjyWa9hfweLnLfhGB5mGJ0pibq9IWfndUy6WFAwy0w0n58fvgH4iaapFlDROeKHfcL7gPhmXEvr0E9Km/64">
             </div>
             <div class="info">
-              <div class="name">MoChat科技</div>
+              <div class="name">MaTrix科技</div>
               <div class="type">
                 服务号
                 <a-tag color="green">
@@ -36,7 +36,7 @@
                 src="https://wx.qlogo.cn/mmopen/9YAYFgu8QC3ibLZ708eUjyWa9hfweLnLfhGB5mGJ0pibq9IWfndUy6WFAwy0w0n58fvgH4iaapFlDROeKHfcL7gPhmXEvr0E9Km/64">
             </div>
             <div class="info">
-              <div class="name">MoChat科技</div>
+              <div class="name">MaTrix科技</div>
               <div class="type">
                 服务号
                 <a-tag color="green">

@@ -152,13 +152,13 @@
       <a-card title="入门指引" style="marginTop: 13px;">
         <div class="btn-box">
           <div>
-            <a :href="guide.docLink" target="_blank">
+            <a :href="" target="_blank">
               <img :src="require('@/assets/systemHomePage/file-icon.png')" alt="">
               <span>开发文档</span>
             </a>
           </div>
           <div>
-            <a :href="guide.faqLink" target="_blank">
+            <a :href="" target="_blank">
               <img :src="require('@/assets/systemHomePage/help-icon.png')" alt="">
               <span>帮助中心</span>
             </a>

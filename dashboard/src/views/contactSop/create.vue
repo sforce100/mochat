@@ -25,7 +25,7 @@
       <div class="block">
         <div class="title">设置推送周期及内容</div>
         <div class="desc-text mb16">
-          设置规则后将会通过「MoChat提醒」提醒员工发送推送内容
+          设置规则后将会通过「MaTrix提醒」提醒员工发送推送内容
         </div>
         <div class="mb16">
           <a-button type="primary" ghost @click="$refs.addRule.show()">添加规则</a-button>

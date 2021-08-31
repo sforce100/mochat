@@ -1,6 +1,6 @@
 <template>
   <div class="room-welcome">
-    <a-alert message="因企业微信接口限制，在【企业微信后台】群欢迎语素材库进行编辑或删除操作，MoChat不会同步更新，建议在MoChat入群欢迎语处进行管理" type="info"/>
+    <a-alert message="因企业微信接口限制，在【企业微信后台】群欢迎语素材库进行编辑或删除操作，MaTrix不会同步更新，建议在MaTrix入群欢迎语处进行管理" type="info"/>
     <div class="add-row">
       <div class="btn">
         <router-link :to="{path: '/roomWelcome/create'}">

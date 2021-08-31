@@ -8,7 +8,7 @@
         <span class="label">给员工推送：</span>
         <div class="input flex">
           <a-switch size="small" v-model="form.pushEmployee"/>
-          <span class="ml6">开启后，若客户完成裂变任务，MoChat会给所属员工发送通知提醒</span>
+          <span class="ml6">开启后，若客户完成裂变任务，MaTrix会给所属员工发送通知提醒</span>
         </div>
       </div>
       <div class="item">
