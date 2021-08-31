@@ -298,8 +298,8 @@ export default {
       licenseContactLink: '',
       newsList: [],
       guide: {
-        dev: "http://www.baidu.com",
-        help: "http://www.baidu.com"
+        dev: 'http://www.baidu.com',
+        help: 'http://www.baidu.com'
       }
     }
   },
