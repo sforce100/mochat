@@ -171,12 +171,14 @@ class ContactLottery extends AbstractAction
         ## 总抽奖机会限制次数
         $drawSet = json_decode($prize['drawSet'], true, 512, JSON_THROW_ON_ERROR); //抽奖限制
         if ($drawSet['type_total_num'] === 2 && $drawSet['max_total_num'] <= $contactCount) {
-            throw new CommonException(ErrorCode::INVALID_PARAMS, '您的抽奖机会已用完');
+//            throw new CommonException(ErrorCode::INVALID_PARAMS, '您的抽奖机会已用完');
+            return ['prize_name' => '您的抽奖机会已用完', 'receive_qr' => '10002', 'receive_code' => '10002'];
         }
 
         ## 每日抽奖机会限制次数
         if ($drawSet['type_every_day_num'] === 2 && $drawSet['max_every_day_num'] <= $this->lotteryContactRecordService->countLotteryContactRecordTodayByLotteryIdContactId((int) $params['id'], (int) $contact['id'])) {
-            throw new CommonException(ErrorCode::INVALID_PARAMS, '今日抽奖机会已用完哦~');
+//            throw new CommonException(ErrorCode::INVALID_PARAMS, '今日抽奖机会已用完哦~');
+            return ['prize_name' => '今日抽奖机会已用完哦~', 'receive_qr' => '', 'receive_code' => '10002'];
         }
 
         ## 中奖限制

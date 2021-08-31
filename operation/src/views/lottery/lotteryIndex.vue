@@ -214,28 +214,43 @@
                     union_id: this.weChatUserNews.unionid,
                     nickname: this.weChatUserNews.nickname
                 }).then((res) => {
-                    //在哪里停止
-                    this.prizeSetNews.forEach((item, index) => {
-                        if (item.name == res.data.prize_name) {
-                            this.$refs.LuckyWheel.play()
-                            setTimeout(() => {
-                                // 索引值
-                                this.$refs.LuckyWheel.stop(index)
-                            }, 3000)
-                        }
-                    })
-                    //弹窗提醒
-                    setTimeout(() => {
-                        let prizeData = {
-                            receiveName: res.data.prize_name,
-                            receiveQr: res.data.receive_qr,
-                            receiveCode: res.data.receive_code,
-                            nickname: this.weChatUserNews.nickname,
-                            headimgurl: this.weChatUserNews.headimgurl
-                        }
-                        this.$refs.prize.show(prizeData)
-                        this.getClientData()
-                    }, 6000)
+                    if (res.data.receive_code == '10002') {
+                        //弹窗提醒
+                        setTimeout(() => {
+                            let prizeData = {
+                                receiveName: res.data.prize_name,
+                                nickname: this.weChatUserNews.nickname,
+                                receiveQr: this.weChatUserNews.headimgurl,
+                                headimgurl: this.weChatUserNews.headimgurl
+                            }
+                            this.$refs.prize.show(prizeData)
+                            this.getClientData()
+                        }, 0)
+                    } else {
+                        //在哪里停止
+                        this.prizeSetNews.forEach((item, index) => {
+                            if (item.name == res.data.prize_name) {
+                                this.$refs.LuckyWheel.play()
+                                setTimeout(() => {
+                                    // 索引值
+                                    this.$refs.LuckyWheel.stop(index)
+                                }, 3000)
+                            }
+                        })
+                        //弹窗提醒
+                        setTimeout(() => {
+                            let prizeData = {
+                                receiveName: res.data.prize_name,
+                                receiveQr: res.data.receive_qr,
+                                receiveCode: res.data.receive_code,
+                                nickname: this.weChatUserNews.nickname,
+                                headimgurl: this.weChatUserNews.headimgurl
+                            }
+                            this.$refs.prize.show(prizeData)
+                            this.getClientData()
+                        }, 6000)
+                    }
+
                 })
             }
         }

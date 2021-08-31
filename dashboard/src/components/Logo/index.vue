@@ -1,5 +1,5 @@
 <template>
-  <img v-if="!sideCollapsed" class="logo" :src="src"/>
+  <img v-if="!sideCollapsed" style="width: 50px;height: 50px" :src="src"/>
 </template>
 
 <script>
