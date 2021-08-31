@@ -10,7 +10,7 @@
               <div class="clock_time" v-if="type==0">完成打卡时间：<span>{{ taskData.day }}</span></div>
               <div class="clock_tip_a" v-if="type==1">你已经完成连续打卡{{ taskData.day_count }}天任务</div>
               <img :src="employee_qrcode" class="qr_code" alt=""/>
-              <div class="clock_tips" v-if="type==0">真棒!你已经完成连续打卡{{ taskData.day_count }}天任务</div>
+              <div class="clock_tips" v-if="type==0">真棒!你今天已经参与连续打卡{{ taskData.day_count }}天任务</div>
               <div class="clock_tips" v-if="type==0">继续打卡完成其他任务吧</div>
               <div class="clock_tips">记得添加客服领取奖励哦~</div>
             </div>
