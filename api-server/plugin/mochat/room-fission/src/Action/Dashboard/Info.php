@@ -132,7 +132,7 @@ class Info extends AbstractAction
             $rooms[$k]['room']       = json_decode($v['room'], true, 512, JSON_THROW_ON_ERROR);
         }
 
-        $link = Url::getAuthRedirectUrl(8, $id, [
+        $link = Url::getAuthRedirectUrl(8, (int)$id, [
             'parent_union_id' => 0,
             'wx_user_id' => $id,
         ]);
