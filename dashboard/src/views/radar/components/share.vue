@@ -226,6 +226,10 @@ export default {
         this.$message.success('创建成功')
         this.channelName = ''
         this.getChannelNamelist({ radar_id: this.id })
+      }).catch((res) => {
+        if (res.code === 100013) {
+          this.$message.error(res.msg)
+        }
       })
     },
     // 获取渠道列表
