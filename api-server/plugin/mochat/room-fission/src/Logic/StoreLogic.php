@@ -96,9 +96,9 @@ class StoreLogic
     public function handle(array $user, array $params): array
     {
         ## 处理参数
-        $params = $this->handleParam($user, $params);
+        // $params = $this->handleParam($user, $params);
         ## 创建活动
-        $id = $this->createRoomFission($params);
+        $id = $this->createRoomFission($user, $params);
 
         return [$id];
     }
@@ -110,7 +110,7 @@ class StoreLogic
      * @return array 响应数组
      * @throws \JsonException|\League\Flysystem\FileExistsException
      */
-    private function handleParam(array $user, array $params): array
+    private function handleParam(int $fissionId, array $user, array $params): array
     {
         $data['fission'] = [
             'official_account_id' => $params['fission']['official_account_id'],
@@ -138,7 +138,7 @@ class StoreLogic
             $localFile = File::download(file_full_url($params['welcome']['link_pic']), $params['welcome']['link_pic']);
             $wxUrl = $this->wxApp($user['corpIds'][0], 'contact')->media->uploadImg($localFile);
         }
-        $templateId = $this->handleWelcome($user['corpIds'][0], $params['welcome'], $wxUrl['url']);
+        $templateId = $this->handleWelcome($user['corpIds'][0], $fissionId, $params['welcome'], $wxUrl['url']);
         $data['welcome'] = [
             'text' => $params['welcome']['text'],
             'link_title' => $params['welcome']['link_title'],
@@ -189,13 +189,14 @@ class StoreLogic
      * @param array $params 参数
      * @return int 响应数值
      */
-    private function createRoomFission(array $params): int
+    private function createRoomFission(array $user, array $params): int
     {
         ## 数据操作
         Db::beginTransaction();
         try {
             ## 创建活动
             $id = $this->roomFissionService->createRoomFission($params['fission']);
+            $params = $this->handleParam($id, $user, $params);
             ## 创建海报
             $params['poster']['fission_id'] = $id;
             $this->roomFissionPosterService->createRoomFissionPoster($params['poster']);
@@ -227,9 +228,9 @@ class StoreLogic
      * @throws \EasyWeChat\Kernel\Exceptions\InvalidConfigException
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    private function handleWelcome(int $corpId, array $welcome, string $pic_url): string
+    private function handleWelcome(int $corpId, int $fissionId, array $welcome, string $pic_url): string
     {
-        $url = Url::getAuthRedirectUrl(8, $corpId, ['parent_union_id' => '', 'wx_user_id' => '']);
+        $url = Url::getAuthRedirectUrl(8, $fissionId, ['parent_union_id' => '', 'wx_user_id' => '']);
         $easyWeChatParams['text']['content'] = $welcome['text'];
         $easyWeChatParams['link'] = ['title' => $welcome['link_title'], 'picurl' => $pic_url, 'desc' => $welcome['link_desc'], 'url' => $url];
         ##EasyWeChat添加入群欢迎语素材
