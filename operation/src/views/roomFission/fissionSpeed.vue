@@ -13,7 +13,7 @@
                     <p>助力成功人数</p>
                 </div>
                 <div class="right">
-                    <p class="people">{{helphandData.diff_num}}</p>
+                    <p class="people">{{helphandData.diff_num < 0 ? 0 : helphandData.diff_num}}</p>
                     <p>
                         还需助力人数
                     </p>
@@ -21,7 +21,7 @@
             </div>
             <div class="info-bottom">
                 <div>
-                    <span class="tips" v-if="helphandData.success_num!=helphandData.diff_num">领取奖品</span>
+                    <span class="tips" v-if="helphandData.diff_num > 0">领取奖品</span>
                     <span class="tips success"  @click="receiveReward" v-else>领取奖品</span>
                 </div>
             </div>
