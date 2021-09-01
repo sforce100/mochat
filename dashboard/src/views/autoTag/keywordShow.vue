@@ -35,7 +35,7 @@
           <div class="set-content mt18 ml84" v-for="(item,index) in tagRule" :key="index">
             <span class="title-small black">规则{{ index+1 }}</span>
             <p class="keys ml4" v-for="(obj,inx) in item.tags" :key="inx">
-              为<span>每天</span>触发关键词<span>{{ obj.tagid }}</span>次的客户自动打上 <a-tag>{{ obj.tagname }}</a-tag> 标签
+              为<span>每天</span>触发关键词<span>{{ item.trigger_count }}</span>次的客户自动打上 <a-tag>{{ obj.tagname }}</a-tag> 标签
             </p>
           </div>
         </div>
