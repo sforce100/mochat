@@ -72,6 +72,7 @@ export default {
     },
   created() {
     this.fission_id = this.$route.query.fission_id
+    this.getOpenUserInfo()
   },
   methods: {
       getOpenUserInfo() {
