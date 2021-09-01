@@ -115,7 +115,7 @@ class InviteFriends extends AbstractAction
         $contactRecord = $this->roomFissionContactService->getRoomFissionContactByUnionIdFissionID($params['union_id'], (int) $params['fission_id'], ['id', 'nickname', 'avatar', 'invite_count']);
         $isNew         = $fission['newFriend'] === 1 ? 1 : 2;
         $loss          = $fission['deleteInvalid'] === 1 ? 0 : 2;
-        $inviteFriends = $this->roomFissionContactService->getRoomFissionContactByParentUnionId($params['union_id'], 1, $isNew, $loss, ['nickname', 'avatar', 'created_at']);
+        $inviteFriends = $this->roomFissionContactService->getRoomFissionContactByParentUnionId($params['union_id'], 1, $isNew, $loss, (int) $params['fission_id'], ['nickname', 'avatar', 'created_at']);
         foreach ($inviteFriends as $k => $v) {
             $inviteFriends[$k]['avatar'] = file_full_url($v['avatar']);
         }

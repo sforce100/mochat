@@ -181,10 +181,13 @@ class RoomFissionContactService extends AbstractService implements RoomFissionCo
     /**
      * 获取客户助力好友.
      */
-    public function getRoomFissionContactByParentUnionId(string $unionId, int $join_status, int $is_new, int $loss, array $columns = ['*']): array
+    public function getRoomFissionContactByParentUnionId(string $unionId, int $join_status, int $is_new, int $loss, int $fissionId = 0, array $columns = ['*']): array
     {
         $res = $this->model::query()
             ->where('parent_union_id', $unionId)
+            ->when($fissionId > 0, function (Builder $query) use ($fissionId) {
+                return $query->where('fission_id', $fissionId);
+            })
             ->when($join_status < 2, function (Builder $query) use ($join_status) {
                 return $query->where('join_status', $join_status);
             })
