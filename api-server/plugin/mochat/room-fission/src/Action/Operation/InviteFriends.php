@@ -119,7 +119,13 @@ class InviteFriends extends AbstractAction
         foreach ($inviteFriends as $k => $v) {
             $inviteFriends[$k]['avatar'] = file_full_url($v['avatar']);
         }
-        return ['nickname' => $contactRecord['nickname'], 'avatar' => file_full_url($contactRecord['avatar']), 'success_num' => $contactRecord['inviteCount'], 'diff_num' => $fission['targetCount'] - $contactRecord['inviteCount'], 'invite_friends' => $inviteFriends];
+
+        $diff_num = 0;
+        if ($fission['targetCount'] > $contactRecord['inviteCount']) {
+            $diff_num = $fission['targetCount'] - $contactRecord['inviteCount'];
+        }
+            
+        return ['nickname' => $contactRecord['nickname'], 'avatar' => file_full_url($contactRecord['avatar']), 'success_num' => $contactRecord['inviteCount'], 'diff_num' => $diff_num, 'invite_friends' => $inviteFriends];
     }
 
     /**
