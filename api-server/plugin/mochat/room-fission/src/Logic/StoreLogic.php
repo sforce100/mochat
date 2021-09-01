@@ -110,6 +110,32 @@ class StoreLogic
      * @return array 响应数组
      * @throws \JsonException|\League\Flysystem\FileExistsException
      */
+    private function handleRoomFissionParam(array $user, array $params): array
+    {
+        $data['fission'] = [
+            'official_account_id' => $params['fission']['official_account_id'],
+            'active_name' => $params['fission']['active_name'],
+            'end_time' => $params['fission']['end_time'],
+            'target_count' => (int)$params['fission']['target_count'],
+            'new_friend' => (int)$params['fission']['new_friend'],
+            'delete_invalid' => (int)$params['fission']['delete_invalid'],
+            'receive_employees' => json_encode($params['fission']['receive_employees'], JSON_THROW_ON_ERROR),
+            'auto_pass' => (int)$params['fission']['auto_pass'],
+            'tenant_id' => isset($params['tenant_id']) ? $params['tenant_id'] : 0,
+            'corp_id' => $user['corpIds'][0],
+            'create_user_id' => $user['id'],
+            'created_at' => date('Y-m-d H:i:s'),
+        ];
+        return $data;
+    }
+
+    /**
+     * 处理参数.
+     * @param array $user 用户信息
+     * @param array $params 接受参数
+     * @return array 响应数组
+     * @throws \JsonException|\League\Flysystem\FileExistsException
+     */
     private function handleParam(int $fissionId, array $user, array $params): array
     {
         $data['fission'] = [
@@ -195,7 +221,9 @@ class StoreLogic
         Db::beginTransaction();
         try {
             ## 创建活动
-            $id = $this->roomFissionService->createRoomFission($params['fission']);
+            $fissionParam = $this->handleRoomFissionParam($user, $params);
+            $id = $this->roomFissionService->createRoomFission($fissionParam['fission']);
+            ## 处理请求参数
             $params = $this->handleParam($id, $user, $params);
             ## 创建海报
             $params['poster']['fission_id'] = $id;
