@@ -471,6 +471,7 @@ export default {
     },
     // 获取选中活动
     selectActivity (e) {
+      console.log(e)
       this.activityData.forEach((item, index) => {
         if (item.activeName == this.shakyName) {
           this.shakyNews = item
