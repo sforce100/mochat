@@ -83,7 +83,7 @@ export function clientTagsReceive (params) {
 // 详细打卡天数
 export function roomClockInDays (params) {
   return request({
-    url: '/roomClockIn/roomClockInDays',
+    url: '/roomClockIn/clockInDays',
     method: 'get',
     params: params
   })
