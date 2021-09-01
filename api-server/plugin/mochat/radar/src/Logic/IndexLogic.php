@@ -130,7 +130,7 @@ class IndexLogic
                 $type    = '文章';
                 $article = json_decode($val['article'], true, 512, JSON_THROW_ON_ERROR);
                 if ($val['articleType'] === 2) {
-                    $article['cover_url'] = file_full_url($article['cover_url']);
+                    $article['cover_url'] = empty($article['cover_url']) ? '' : file_full_url($article['cover_url']);
                 }
             }
             $list[$key] = [
