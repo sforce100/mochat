@@ -67,7 +67,8 @@ export default {
           prizeShow: false,
         //  助力信息
           helphandData:{},
-          receiveCode:''
+          receiveCode:'',
+          wxUserData: {}
         }
     },
   created() {
