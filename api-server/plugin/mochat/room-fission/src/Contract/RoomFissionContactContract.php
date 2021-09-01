@@ -99,7 +99,7 @@ interface RoomFissionContactContract
     /**
      * 获取客户助力好友.
      */
-    public function getRoomFissionContactByParentUnionId(string $unionId, int $join_status, int $is_new, int $loss, array $columns = ['*']): array;
+    public function getRoomFissionContactByParentUnionId(string $unionId, int $join_status, int $is_new, int $loss, int $fissionId = 0, array $columns = ['*']): array;
 
     /**
      * 统计
