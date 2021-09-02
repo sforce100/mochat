@@ -86,10 +86,11 @@ export default {
       }
       // 邀请客户参与
       if (this.step == 3) {
+        this.loading = true
         if (this.$refs.step4.outputStep4() == false) {
+          this.loading = false
           return false
         } else {
-          this.loading = true
           this.activityAskData.invite = this.$refs.step4.outputStep4()
           storeApi(this.activityAskData).then((res) => {
             // console.log('成功')
@@ -99,6 +100,7 @@ export default {
           this.loading = false
           return false
         }
+
       }
       this.step++
     // 欢迎语
