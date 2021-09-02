@@ -18,7 +18,7 @@
       <a-button class="mr" size="large" v-if="step !== 0" @click="lastStep">
         上一步
       </a-button>
-      <a-button type="primary" size="large" @click="nextStep" :loading="loading">
+      <a-button type="primary" size="large" @click="nextStep" :loading="btnLoading">
         <span v-if="step < 3">下一步</span>
         <span v-if="step === 3">完成</span>
       </a-button>
@@ -40,7 +40,7 @@ export default {
   data () {
     return {
       step: 0,
-      loading: false,
+      btnLoading: false,
       activityAskData: {
         // 活动基本信息
         fission: {},
@@ -86,9 +86,9 @@ export default {
       }
       // 邀请客户参与
       if (this.step == 3) {
-        this.loading = true
+        this.btnLoading = true
         if (this.$refs.step4.outputStep4() == false) {
-          this.loading = false
+          this.btnLoading = false
           return false
         } else {
           this.activityAskData.invite = this.$refs.step4.outputStep4()
@@ -97,7 +97,7 @@ export default {
             this.$message.success('创建成功')
             this.$router.push({ path: '/roomFission/index' })
           })
-          this.loading = false
+          this.btnLoading = false
           return false
         }
       }
