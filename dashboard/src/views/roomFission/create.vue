@@ -100,7 +100,6 @@ export default {
           this.loading = false
           return false
         }
-
       }
       this.step++
     // 欢迎语
