@@ -88,12 +88,14 @@ export default {
         if (this.$refs.step4.outputStep4() == false) {
           return false
         } else {
+          this.loading = true
           this.activityAskData.invite = this.$refs.step4.outputStep4()
           storeApi(this.activityAskData).then((res) => {
             // console.log('成功')
             this.$message.success('创建成功')
             this.$router.push({ path: '/roomFission/index' })
           })
+          this.loading = false
           return false
         }
       }
