@@ -18,7 +18,7 @@
       <a-button class="mr" size="large" v-if="step !== 0" @click="lastStep">
         上一步
       </a-button>
-      <a-button type="primary" size="large" @click="nextStep">
+      <a-button type="primary" size="large" @click="nextStep" :loading="loading">
         <span v-if="step < 3">下一步</span>
         <span v-if="step === 3">完成</span>
       </a-button>
