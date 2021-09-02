@@ -16,7 +16,7 @@
         option-label-prop="label"
         @change="selectActivity">
         <a-select-option
-          :value="item.activeName"
+          :value="item.id"
           :label="item.activeName"
           v-for="(item,index) in activityData"
           :key="index">
@@ -331,7 +331,7 @@ export default {
       // 活动列表
       activityData: {},
       //  活动名称
-      shakyName: '',
+      shakyName: 0,
       // 活动信息
       shakyNews: {},
       totalRemarkData: {
@@ -473,7 +473,7 @@ export default {
     selectActivity (e) {
       console.log(e)
       this.activityData.forEach((item, index) => {
-        if (item.activeName == this.shakyName) {
+        if (item.id == this.shakyName) {
           this.shakyNews = item
         }
       })
