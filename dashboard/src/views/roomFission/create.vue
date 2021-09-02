@@ -40,6 +40,7 @@ export default {
   data () {
     return {
       step: 0,
+      loading: false,
       activityAskData: {
         // 活动基本信息
         fission: {},
