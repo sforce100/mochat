@@ -24,7 +24,7 @@
           <div class="state mt16">
             <span>规则状态：</span>
             <a-switch size="small" :checked="auto_tag.onOff==1" class="mr4"/>
-            <span v-if="auto_tag.onOff">已开启</span>
+            <span v-if="auto_tag.onOff == 1">已开启</span>
             <span v-else>已关闭</span>
           </div>
         </div>
