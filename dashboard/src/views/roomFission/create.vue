@@ -96,9 +96,9 @@ export default {
             // console.log('成功')
             this.$message.success('创建成功')
             this.$router.push({ path: '/roomFission/index' })
-          }).catch((res => {
+          }).catch((res) => {
             this.$message.error('添加入群欢迎语素材或邀请文案过长')
-          }))
+          })
           this.btnLoading = false
           return false
         }
