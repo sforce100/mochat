@@ -570,6 +570,7 @@ export default {
             path: '/workRoomAutoPull/index'
           })
         } catch (e) {
+          this.$message.error(e.msg)
           console.log(e)
         }
       } else {
