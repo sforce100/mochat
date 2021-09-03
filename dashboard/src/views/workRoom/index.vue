@@ -30,18 +30,6 @@
                 <a-form-item
                   label="选择群主：">
                   <a-button icon="down" class="choose-btn" @click="choosePeople"></a-button>
-                  <div class="select">
-                    <a-select
-                      mode="multiple"
-                      style="width: 100%"
-                      v-model="select"
-                      placeholder="请选择活动"
-                    >
-                      <a-select-option v-for="v in activitys" :key="v.id">
-                        {{ v.active_name }}
-                      </a-select-option>
-                    </a-select>
-                  </div>
                 </a-form-item>
               </a-col>
               <a-col :span="12">
@@ -52,6 +40,25 @@
                       {{ d.name }}
                     </a-select-option>
                   </a-select>
+                </a-form-item>
+              </a-col>
+            </a-row>
+            <a-row>
+              <a-col :span="12">
+                <a-form-item
+                  label="已选群主：">
+                <div class="select">
+                  <a-select
+                    mode="multiple"
+                    style="width: 100%"
+                    v-model="select"
+                    placeholder=""
+                  >
+                    <a-select-option v-for="v in activitys" :key="v.id">
+                      {{ v.active_name }}
+                    </a-select-option>
+                  </a-select>
+                </div>
                 </a-form-item>
               </a-col>
             </a-row>
