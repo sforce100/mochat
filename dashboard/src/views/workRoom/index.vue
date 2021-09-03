@@ -30,6 +30,18 @@
                 <a-form-item
                   label="选择群主：">
                   <a-button icon="down" class="choose-btn" @click="choosePeople"></a-button>
+                  <div class="select">
+                    <a-select
+                      mode="multiple"
+                      style="width: 100%"
+                      v-model="select"
+                      placeholder="请选择活动"
+                    >
+                      <a-select-option v-for="v in activitys" :key="v.id">
+                        {{ v.active_name }}
+                      </a-select-option>
+                    </a-select>
+                  </div>
                 </a-form-item>
               </a-col>
               <a-col :span="12">
@@ -302,6 +314,7 @@ export default {
       group: [],
       // 当前选中分组
       active: 0,
+      select: [],
       // 新增分组
       addGroupShow: false,
       // 新增分组名称
@@ -343,6 +356,7 @@ export default {
       ],
       // 群名称下拉
       groupName: [],
+      activitys: [],
       // 选择群主
       choosePeopleShow: false,
       // 群成员
@@ -526,6 +540,7 @@ export default {
       this.startTime = ''
       this.endTime = ''
       this.searchTime = null
+      this.select = []
     },
     // 批量修改分组
     betchAlter () {
@@ -577,6 +592,9 @@ export default {
     choosePeopleConfirm () {
       this.workRoomOwnerId = this.employees.map(item => {
         return item.employeeId
+      })
+      this.select = this.employees.map(item => {
+        return item.employeeName
       })
       this.choosePeopleShow = false
     },
