@@ -47,18 +47,18 @@
               <a-col :span="12">
                 <a-form-item
                   label="已选群主：">
-                <div class="select">
-                  <a-select
-                    mode="multiple"
-                    style="width: 100%"
-                    v-model="select"
-                    placeholder=""
-                  >
-                    <a-select-option v-for="v in activitys" :key="v.id">
-                      {{ v.active_name }}
-                    </a-select-option>
-                  </a-select>
-                </div>
+                  <div class="select">
+                    <a-select
+                      mode="multiple"
+                      style="width: 100%"
+                      v-model="select"
+                      placeholder=""
+                    >
+                      <a-select-option v-for="v in activitys" :key="v.id">
+                        {{ v.active_name }}
+                      </a-select-option>
+                    </a-select>
+                  </div>
                 </a-form-item>
               </a-col>
             </a-row>
