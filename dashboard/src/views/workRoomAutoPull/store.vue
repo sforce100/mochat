@@ -587,8 +587,19 @@ export default {
             path: '/workRoomAutoPull/index'
           })
         } catch (e) {
-          this.$message.error(e.msg)
-          console.log(e)
+          if (this.qrcodeName == null) {
+            this.$message.error("扫码名称必填")
+            console.log(e)
+          }
+          if (this.leadingWords == null) {
+            this.$message.error("入群引导语必填")
+          }
+          if (this.employees.length === 0) {
+            this.$message.error("使用成员 必填")
+          }
+          if (this.checkedTags.length === 0) {
+            this.$message.error("客户标签 必填")
+          }
         }
       }
     }
