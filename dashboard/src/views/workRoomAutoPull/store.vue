@@ -587,11 +587,11 @@ export default {
             path: '/workRoomAutoPull/index'
           })
         } catch (e) {
-          if (this.qrcodeName == null) {
+          if (this.qrcodeName === '') {
             this.$message.error('扫码名称必填')
             console.log(e)
           }
-          if (this.leadingWords == null) {
+          if (this.leadingWords === '') {
             this.$message.error('入群引导语必填')
           }
           if (this.employees.length === 0) {
