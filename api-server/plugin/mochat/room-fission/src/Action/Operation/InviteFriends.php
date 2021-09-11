@@ -95,7 +95,7 @@ class InviteFriends extends AbstractAction
 
     public function __construct(RequestInterface $request, ContainerInterface $container)
     {
-        $this->request   = $request;
+        $this->request = $request;
         $this->container = $container;
     }
 
@@ -137,7 +137,7 @@ class InviteFriends extends AbstractAction
     {
         return [
             'fission_id' => 'required',
-            'union_id'   => 'required',
+            'union_id' => 'required',
         ];
     }
 
@@ -149,7 +149,7 @@ class InviteFriends extends AbstractAction
     {
         return [
             'fission_id.required' => 'fission_id 必传',
-            'union_id.required'   => 'union_id 必传',
+            'union_id.required' => 'union_id 必传',
         ];
     }
 }
