@@ -227,6 +227,7 @@ export default {
         this.text = data.welcome.text
         this.link_title = data.welcome.linkTitle
         this.link_desc = data.welcome.linkDesc
+        this.link_pic = data.welcome.linkPic
         this.$refs.coverImg.setUrl(data.welcome.linkPic)
       }
     },

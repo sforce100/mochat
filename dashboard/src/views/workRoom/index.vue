@@ -46,6 +46,25 @@
             <a-row>
               <a-col :span="12">
                 <a-form-item
+                  label="已选群主：">
+                  <div class="select">
+                    <a-select
+                      mode="multiple"
+                      style="width: 100%"
+                      v-model="select"
+                      placeholder=""
+                    >
+                      <a-select-option v-for="v in activitys" :key="v.id">
+                        {{ v.active_name }}
+                      </a-select-option>
+                    </a-select>
+                  </div>
+                </a-form-item>
+              </a-col>
+            </a-row>
+            <a-row>
+              <a-col :span="12">
+                <a-form-item
                   label="创建时间">
                   <a-range-picker class="picker" v-model="searchTime" @change="dateChange" />
                 </a-form-item>
@@ -301,7 +320,8 @@ export default {
       // 分组列表
       group: [],
       // 当前选中分组
-      active: 'all',
+      active: 0,
+      select: [],
       // 新增分组
       addGroupShow: false,
       // 新增分组名称
@@ -343,6 +363,7 @@ export default {
       ],
       // 群名称下拉
       groupName: [],
+      activitys: [],
       // 选择群主
       choosePeopleShow: false,
       // 群成员
@@ -529,6 +550,7 @@ export default {
       this.startTime = ''
       this.endTime = ''
       this.searchTime = null
+      this.select = []
     },
     // 批量修改分组
     betchAlter () {
@@ -580,6 +602,9 @@ export default {
     choosePeopleConfirm () {
       this.workRoomOwnerId = this.employees.map(item => {
         return item.employeeId
+      })
+      this.select = this.employees.map(item => {
+        return item.employeeName
       })
       this.choosePeopleShow = false
     },
